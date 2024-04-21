@@ -48,6 +48,9 @@ public class WeaponSetting : MonoBehaviour
         this.power = power;
     }
 
-
+    protected virtual void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
 
 }
