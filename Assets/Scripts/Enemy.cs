@@ -11,17 +11,22 @@ public class Enemy : MonoBehaviour
     public Sprite hitSprite; // 맞았을 때 변경할 이미지
     public Sprite dieSprite; // 죽었을 때 변병할 이미지
 
+    public float hp;
+    public bool moveOnOff = true;
+    Rigidbody2D rb;
+
     void Start()
     {
         // 플레이어 오브젝트를 찾아서 player 변수에 할당
         player = GameObject.FindGameObjectWithTag("Player").transform;
         lastMoveTime = Time.fixedTime; // 시작 시간 설정
+        rb = GetComponent<Rigidbody2D>();
     }
 
 
     void FixedUpdate()
     {
-        if (player != null)
+        if (player != null && moveOnOff)
         {
             // 일정 시간 간격마다 몬스터 이동
             if (Time.fixedTime - lastMoveTime >= 0.1f) // 예시로 0.1초 간격으로 설정
@@ -56,4 +61,16 @@ public class Enemy : MonoBehaviour
         scale.x *= -1; // x 축 방향 반전
         transform.localScale = scale;
     }
+
+    public void Die()
+    {
+        Destroy(rb);
+        moveOnOff = false;
+        gameObject.tag = "Die";
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        gameObject.GetComponent<Animator>().SetBool("die", true);
+        Destroy(gameObject, 2f);
+    }
+
+    
 }

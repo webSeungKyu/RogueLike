@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (enemy0OnOff)
         {
-            yield return new WaitForSeconds(3f);
+            yield return null;
             Vector3 ran = new Vector2(Random.Range(5f, 8f), Random.Range(5f, 8f));
             Vector3 ran2 = new Vector2(Random.Range(-5f, -8f), Random.Range(-5f, -8f));
             Vector3 ran3 = new Vector2(Random.Range(5f, 8f), Random.Range(-5f, -8f));
@@ -28,8 +28,8 @@ public class SpawnManager : MonoBehaviour
             Instantiate(enemy0, player.transform.position + ran2, Quaternion.identity);
             Instantiate(enemy0, player.transform.position + ran3, Quaternion.identity);
             Instantiate(enemy0, player.transform.position + ran4, Quaternion.identity);
-            yield return null;
-            
+            yield return new WaitForSeconds(3f);
+
         }
         
     }

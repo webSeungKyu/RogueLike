@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager Instance;
+    public bool penetrate = false; //ฐüล๋ทย
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    public void HitEnemy(Enemy enemy, float damage)
     {
-        
+        enemy.hp -= damage;
+        if(enemy.hp <= 0)
+        {
+            enemy.Die();
+        }
+
     }
 }

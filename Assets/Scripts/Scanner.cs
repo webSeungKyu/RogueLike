@@ -7,7 +7,7 @@ public class Scanner : MonoBehaviour
     public float scanRange = 10f; //검색할 범위
     public LayerMask targetLayer; //검색할 레이어
     public RaycastHit2D[] targetList; //검색 후 저장할 리스트
-    public static Transform nearTarget; //가장 가까운 거리에 있는 대상
+    public static Transform nearTarget = null; //가장 가까운 거리에 있는 대상
 
     private void FixedUpdate()
     {

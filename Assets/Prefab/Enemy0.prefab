@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4218779613471486523}
   - component: {fileID: 2203244967472645416}
   - component: {fileID: 4459695900138559783}
+  - component: {fileID: -3438411335046103687}
   m_Layer: 3
   m_Name: Enemy0
   m_TagString: Enemy
@@ -123,6 +124,7 @@ MonoBehaviour:
   moveSpeed: 3
   hitSprite: {fileID: -392852972, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
   dieSprite: {fileID: 1261089785, guid: 1bc6097228993f045852159e71f81d5b, type: 3}
+  hp: 10
 --- !u!70 &4459695900138559783
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -158,3 +160,30 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.73, y: 1}
   m_Direction: 0
+--- !u!50 &-3438411335046103687
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520272082761321100}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

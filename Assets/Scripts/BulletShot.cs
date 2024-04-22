@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletShot : MonoBehaviour
 {
     public GameObject bullet;
-    float shotCoolTime = 1f;
+    public float shotCoolTime = 1f;
     float timer = 0f;
 
     private void FixedUpdate()

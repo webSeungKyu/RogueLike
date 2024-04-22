@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Enemy
   - Pos
+  - Weapon
+  - Die
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - Enemy
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
