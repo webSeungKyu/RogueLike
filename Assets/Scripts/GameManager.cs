@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public bool penetrate = false; //관통력
     private void Awake()
     {
         if (Instance == null)
@@ -30,6 +29,21 @@ public class GameManager : MonoBehaviour
         {
             enemy.Die();
         }
+    }
 
+    public void WeaponLvUp(GameObject weapon)
+    {
+        weapon.GetComponent<BulletShot>().bullet.GetComponent<Bullet>().SettingLv(1);
+        weapon.GetComponent<BulletShot>().bullet.GetComponent<Bullet>().SettingSpeed(111);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log("업업");
+            GameObject gameObject = GameObject.FindGameObjectWithTag("Pos");
+            WeaponLvUp(gameObject);
+        }
     }
 }

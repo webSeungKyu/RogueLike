@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletShot : MonoBehaviour
 {
     public GameObject bullet;
-    public float shotCoolTime = 1f;
+    public float shotCoolTime = 0.1f;
     float timer = 0f;
 
     private void FixedUpdate()
@@ -44,6 +44,6 @@ public class BulletShot : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             transform.position = new Vector2(player.transform.position.x + 0.4f, transform.position.y);
         }
-        
+
     }
 }

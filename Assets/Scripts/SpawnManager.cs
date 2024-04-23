@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
             Instantiate(enemy0, player.transform.position + ran2, Quaternion.identity);
             Instantiate(enemy0, player.transform.position + ran3, Quaternion.identity);
             Instantiate(enemy0, player.transform.position + ran4, Quaternion.identity);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(0.5f);
 
         }
         

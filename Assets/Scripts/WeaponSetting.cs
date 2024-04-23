@@ -8,7 +8,7 @@ public class WeaponSetting : MonoBehaviour
     protected bool lvMax;
     protected float speed;
     protected float power;
-
+    protected bool penetrate = false; //ฐüล๋ทย
     protected WeaponSetting(int lv, bool lvMax, float speed, float power)
     {
         this.lv = lv;
@@ -28,29 +28,42 @@ public class WeaponSetting : MonoBehaviour
 
     }
 
-    protected virtual void SettingLv(int lv)
+    public virtual void SettingLv(int lv)
     {
-        this.lv = lv;
+        this.lv += lv;
     }
 
-    protected virtual void SettingSpeed(float speed)
+    public virtual void SettingSpeed(float speed)
     {
-        this.speed = speed;
+        this.speed += speed;
     }
 
-    protected virtual void SettingLvMax(bool onOff)
+    public virtual void SettingLvMax(bool onOff)
     {
         this.lvMax = onOff;
     }
 
-    protected virtual void SettingDamage(float power)
+    public virtual void SettingPower(float power)
     {
-        this.power = power;
+        this.power += power;
     }
 
     protected virtual void OnBecameInvisible()
     {
         Destroy(this.gameObject);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Enemy"))
+        {
+            return;
+        }
+        GameManager.Instance.HitEnemy(collision.GetComponent<Enemy>(), power);
 
+        if (!penetrate)
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }

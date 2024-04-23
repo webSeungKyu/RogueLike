@@ -11,15 +11,17 @@ public class Bullet : WeaponSetting
     protected Bullet(int lv, bool lvMax, float speed, float power) : base(lv, lvMax, speed, power)
     {
 
+        
     }
+
+
 
     protected override void Start()
     {
         base.Start();
-        SettingSpeed(15f);
-        SettingDamage(5f);
-
-        if(target == null)
+        this.power = 1;
+        this.speed = 20f;
+        if (target == null)
         {
             return;
         }
@@ -49,7 +51,7 @@ public class Bullet : WeaponSetting
     {
         base.Update();
 
-
+        Debug.Log(lv);
 
     }
 
@@ -61,18 +63,5 @@ public class Bullet : WeaponSetting
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Enemy"))
-        {
-            return;
-        }
-        GameManager.Instance.HitEnemy(collision.GetComponent<Enemy>(), power);
-        
-        if (!GameManager.Instance.penetrate)
-        {
-            Destroy(gameObject);
-        }
 
-    }
 }
